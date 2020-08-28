@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite" parallel="tests" thread-count="2">
+    <listeners>
+        <!--让监听器类生效的-->
+        <listener class-name="com.lemon.listener.TestResultListener"/>
+        <listener class-name="com.lemon.listener.RetryListener"/>
+    </listeners>
+    <test name="线程1">
+        <parameter name="browserName" value="chrome"/>
+        <classes>
+            <class name="com.lemon.testcases.LoginTest"/>
+            <class name="com.lemon.testcases.InvestTest"/>
+        </classes>
+    </test>
+
+    <test name="线程2">
+        <parameter name="browserName" value="firefox"/>
+        <classes>
+            <class name="com.lemon.testcases.LoginTest"/>
+            <class name="com.lemon.testcases.InvestTest"/>
+        </classes>
+    </test>
+</suite>
